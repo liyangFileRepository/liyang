@@ -1,1 +1,1 @@
-Notes on kubenetes
+Notes on kubernetes
