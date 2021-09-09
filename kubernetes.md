@@ -35,17 +35,17 @@ pod按照定义可以分为两种，一种是自主式pod，一种是控制器�
 > 常用的控制器主要是三种，分别是 deployment、statefulset 和 daemonset。
 
 1. ReplicationController 用来确保容器应用的副本数始终保持在用户定义的副本数，即如果有容器异常退出，会自动创建新的 pod 来代替；而如果异常多出来的容器也会自动回收。在新版本的 kubernetes 中建议使用 ReplicaSet 来取代 ReplicationController 。
-ReplicaSet 跟 ReplicationController 没有本质的不同，只是名字不一样，并且ReplicaSet 支持集合式的 selector 。
+<a href='https://kubernetes.io/zh/docs/concepts/workloads/controllers/replicaset/'>ReplicaSet</a> 跟 ReplicationController 没有本质的不同，只是名字不一样，并且ReplicaSet 支持集合式的 selector 。
 虽然 RelicaSet 可以独立使用，但一般开始建议使用 <a href='https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/'>Deployment</a> 来自动管理 ReplicaSet ，这样就无需担心跟其他机制的不兼容问题（比如 ReplicaSet 不支持 Rolling-update 但 Deployment 支持）
 HorizatalPodAutoScale 仅适用于 Deployment 和 ReplicaSet ，在 V1 版本中仅支持根据 pod 的CPU 利用率扩缩容，在 v1alpha 版本中，支持根据内存和用户自定义的 metric 扩缩容。
 
-2. StatefulSet 是为了解决有状态服务的问题（对应 Deployment 和 ReplicaSets 是为无状态服务而设计），其应用场景包括：
+2. <a href='https://kubernetes.io/zh/docs/concepts/workloads/controllers/statefulset/'>StatefulSet</a> 是为了解决有状态服务的问题（对应 Deployment 和 ReplicaSets 是为无状态服务而设计），其应用场景包括：
 - 稳定的持久化存储，即 pod 重新调度后还是能访问到想通的持久化数据，基于 PVC 来实现
 - 稳定的网络标志，即 pod 重新调度后其 PodName 和 HostName 不变，基于 Headless Service（没有 ClusterIP 的 Service）来实现
 - 有序部署，有序扩展，即 pod 是有顺序的，在部署还活着扩展的时候要根据定义的顺序依次依次进行（即 0 ~ N-1，在下一个 pod 实现之前所有之前的 pod 必须都是 Running 和 Ready 状态），基于 init containers 来实现
 - 有序收缩，有序删除（即从 N-1 ~ 0 ）
 
-3. DaemonSet 确保全部（或者一些）Node 上运行一个 pod 的副本。当有 Node 加入集群时,也会为他们新增一个 pod 。当有 Node 从集群中移除时，这些 Pod 也会被回收。删除 DaemonSet 将会删除它创建的所有 pod
+3. <a href='https://kubernetes.io/zh/docs/concepts/workloads/controllers/daemonset/'>DaemonSet</a> 确保全部（或者一些）Node 上运行一个 pod 的副本。当有 Node 加入集群时,也会为他们新增一个 pod 。当有 Node 从集群中移除时，这些 Pod 也会被回收。删除 DaemonSet 将会删除它创建的所有 pod
 
  
 
