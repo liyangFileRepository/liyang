@@ -1,6 +1,5 @@
-# eDocker
+# Docker
 
-​		2014年诞生的一门技术，开源的
 
 ## 1、Docker概述
 
@@ -250,27 +249,3 @@ ip1-->ip2  ip11->ip2    ip11->ip2 ip11->ip2
 
 
 ```
-
-
-
-
-
-# 问题
-
-- iptables机制
-
-- 把Linux变成路d由器--snat
-
-  - 内核开启转发
-
-  - forward 打开 accept
-
-  - ```bash
-    iptables -t nat -A POSTROUTING -j MASQUERADE
-    ```
-
-- 想要使用路由功能的服务器，必须要把流量发送“到路由器”
-- dnat
-  - 如何使用iptables 配置dnat？
-  - 
-
