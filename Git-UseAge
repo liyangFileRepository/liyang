@@ -1,6 +1,6 @@
- 1. git pull [git仓库的ssh地址]		# 从远程拉取仓库
- 2. git branch 				# 创建新的分支
- 3. git checkout [分支名字] 		# 切换分支
- 4. git add .  				# 将当前文件夹下的所有文件添加到本地仓库
- 5. git commit -m ‘[声明]’ 		# 对本次修改的声明注释
- 6. git push  				# 推送至远程仓库
+git pull [git仓库的ssh地址]		# 从远程拉取仓库
+git branch 				# 创建新的分支
+git checkout [分支名字] 		# 切换分支
+git add .  				# 将当前文件夹下的所有文件添加到本地仓库
+git commit -m ‘[声明]’ 		# 对本次修改的声明注释
+git push  				# 推送至远程仓库
