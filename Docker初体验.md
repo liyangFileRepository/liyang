@@ -11,9 +11,9 @@
 2、docker的使用
 
 ```shell
-docker pull 																											# 拉取镜像
+docker pull 																# 拉取镜像
 
-docker run  <==>  docker create + docker start										# 容器的运行，先创建后启动
+docker run  <==>  docker create + docker start								# 容器的运行，先创建后启动
 ```
 
 3、docker状态信息
